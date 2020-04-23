@@ -82,4 +82,4 @@ data = {'camera_matrix': np.asarray(mtx).tolist(),
 file_result = 'calibration_matrix.json'
 print('save ' + file_result)
 with open(file_result, "w") as f:
-    json.dump(data, f)
+    json.dump(data, f, indent=4, sort_keys=True)
