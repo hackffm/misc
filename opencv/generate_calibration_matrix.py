@@ -74,9 +74,11 @@ and corresponding pixel coordinates of the detected corners (imgpoints)
 """
 ret, mtx, dist, rvecs, tvecs = cv2.calibrateCamera(objpoints, imgpoints, gray.shape[::-1], None, None)
 
+# store result
+camera_name = 'mac_1502_face_time'
 # transform the matrix and distortion coefficients to writable lists
-data = {'camera_matrix': np.asarray(mtx).tolist(),
-        'dist_coeff': np.asarray(dist).tolist()}
+data = {camera_name : {'camera_matrix': np.asarray(mtx).tolist(),
+        'dist_coeff': np.asarray(dist).tolist()}}
 
 # and save it to a file
 file_result = 'calibration_matrix.json'
